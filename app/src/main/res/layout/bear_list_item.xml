@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="wrap_content"
+                                             android:background="?attr/selectableItemBackground">
+
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
+        app:layout_constraintDimensionRatio="1:1"
+        tools:src="@drawable/grey_bear"/>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        app:layout_constraintStart_toEndOf="@id/profile_image"
+        tools:text="Name"/>
+
+</android.support.constraint.ConstraintLayout>
