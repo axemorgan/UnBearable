@@ -5,12 +5,9 @@ import com.alex.morgan.bearlist.Bear;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
-
-import kotlin.jvm.JvmVersion;
 
 @Singleton
 class BearCache {

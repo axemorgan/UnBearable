@@ -7,13 +7,17 @@ import java.util.Collection;
 import java.util.Random;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
-class StaticBearSource implements BearSource {
+import dagger.Reusable;
+
+@Reusable
+class RandomBearGenerator implements BearSource {
 
     private final BearNameGenerator nameGenerator;
 
     @Inject
-    StaticBearSource(BearNameGenerator nameGenerator) {
+    RandomBearGenerator(BearNameGenerator nameGenerator) {
         this.nameGenerator = nameGenerator;
     }
 

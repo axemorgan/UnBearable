@@ -4,6 +4,9 @@ import java.util.Random;
 
 import javax.inject.Inject;
 
+import dagger.Reusable;
+
+@Reusable
 class BearNameGenerator {
 
     private final Random random;
@@ -52,7 +55,8 @@ class BearNameGenerator {
             "Bear Grylls",
             "Beary Larkin",
             "Paw McCartney",
-            "Little Bear"
+            "Little Bear",
+            "Grizzly Adams"
     };
 
 }
