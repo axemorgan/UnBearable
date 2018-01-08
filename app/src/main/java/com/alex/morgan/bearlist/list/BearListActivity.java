@@ -27,7 +27,7 @@ import javax.inject.Inject;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
-public class MainActivity extends AppCompatActivity implements BearListContract.View, SwipeRefreshLayout.OnRefreshListener {
+public class BearListActivity extends AppCompatActivity implements BearListContract.View, SwipeRefreshLayout.OnRefreshListener {
 
     @Inject
     BearListContract.Presenter presenter;

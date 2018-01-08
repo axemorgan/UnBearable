@@ -52,7 +52,7 @@ class BearListPresenter implements BearListContract.Presenter, BearFetcher.Callb
     }
 
     private void startLoading() {
-        int loadingCounter = (int) System.currentTimeMillis() % 3;
+        int loadingCounter = (int) (System.currentTimeMillis() % 3);
         String loadingText;
         switch (loadingCounter) {
             case 0:
@@ -65,7 +65,7 @@ class BearListPresenter implements BearListContract.Presenter, BearFetcher.Callb
                 loadingText = "Fetching the bear necessities...";
                 break;
             default:
-                throw new RuntimeException();
+                throw new RuntimeException("Loading counter was " + loadingCounter);
         }
 
         view.showLoading(loadingText);

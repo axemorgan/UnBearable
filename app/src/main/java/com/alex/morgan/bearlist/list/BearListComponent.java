@@ -9,5 +9,5 @@ import dagger.Component;
 @Singleton
 @Component(dependencies = AppComponent.class, modules = BearListModule.class)
 public interface BearListComponent {
-    void inject(MainActivity activity);
+    void inject(BearListActivity activity);
 }
