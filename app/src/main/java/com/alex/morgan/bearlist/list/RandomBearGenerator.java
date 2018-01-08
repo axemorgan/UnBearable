@@ -24,7 +24,7 @@ class RandomBearGenerator implements BearSource {
     @Override
     public Collection<Bear> getAllBears() {
         try {
-            //Long operation here
+            //Long operation going on here
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
