@@ -36,7 +36,7 @@ public class BearApplication extends Application {
         return bearListComponent;
     }
 
-    public void releaseKittenListComponent() {
+    public void releaseBearListComponent() {
         this.bearListComponent = null;
     }
 }
