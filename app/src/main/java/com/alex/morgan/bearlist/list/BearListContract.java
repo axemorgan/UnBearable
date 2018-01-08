@@ -11,8 +11,6 @@ interface BearListContract {
         void showLoading(String text);
 
         void showError();
-
-        void showMessage(String message);
     }
 
     interface Presenter {
@@ -23,7 +21,5 @@ interface BearListContract {
         void onRefreshBears();
 
         void onShowBearDetail(Bear bear);
-
-        void onActivateRubeGoldbergMachine();
     }
 }

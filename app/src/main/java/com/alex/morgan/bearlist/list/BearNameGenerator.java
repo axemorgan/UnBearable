@@ -6,12 +6,10 @@ import javax.inject.Inject;
 
 import dagger.Reusable;
 
-@Reusable
 class BearNameGenerator {
 
     private final Random random;
 
-    @Inject
     BearNameGenerator(Random random) {
         this.random = random;
     }

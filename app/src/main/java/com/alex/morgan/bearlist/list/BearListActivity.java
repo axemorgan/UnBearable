@@ -12,7 +12,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -72,24 +71,6 @@ public class BearListActivity extends AppCompatActivity implements BearListContr
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        new MenuInflater(this).inflate(R.menu.main, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.rube_goldberg: {
-                presenter.onActivateRubeGoldbergMachine();
-            }
-            default: {
-                return super.onOptionsItemSelected(item);
-            }
-        }
-    }
-
-    @Override
     public void showBears(Collection<Bear> bears) {
         recycler.setVisibility(VISIBLE);
         loadingView.setVisibility(GONE);
@@ -108,11 +89,6 @@ public class BearListActivity extends AppCompatActivity implements BearListContr
     public void showError() {
         swipeRefreshLayout.setRefreshing(false);
         Snackbar.make(recycler, "Uh oh... Something broke!", Snackbar.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void showMessage(String message) {
-        Snackbar.make(recycler, message, Snackbar.LENGTH_SHORT).show();
     }
 
     @Override

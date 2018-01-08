@@ -11,7 +11,6 @@ import javax.inject.Singleton;
 
 import dagger.Reusable;
 
-@Reusable
 class RandomBearGenerator implements BearSource {
 
     private final BearNameGenerator nameGenerator;
