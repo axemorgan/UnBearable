@@ -5,16 +5,20 @@ import com.alex.morgan.bearlist.Bear;
 import java.util.Collection;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
+@Singleton
 class BearListPresenter implements BearListContract.Presenter, BearFetcher.Callback {
 
     private final BearFetcher bearFetcher;
+    private final RubeGoldbergMachine machine;
 
     private BearListContract.View view;
 
     @Inject
-    BearListPresenter(BearFetcher bearFetcher) {
+    BearListPresenter(BearFetcher bearFetcher, RubeGoldbergMachine machine) {
         this.bearFetcher = bearFetcher;
+        this.machine = machine;
     }
 
     @Override
@@ -37,6 +41,12 @@ class BearListPresenter implements BearListContract.Presenter, BearFetcher.Callb
     @Override
     public void onShowBearDetail(Bear bear) {
         //TODO
+    }
+
+    @Override
+    public void onActivateRubeGoldbergMachine() {
+        machine.activate();
+        view.showMessage("Done.");
     }
 
     private void startLoading() {
