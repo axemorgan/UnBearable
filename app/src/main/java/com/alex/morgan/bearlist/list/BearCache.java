@@ -9,6 +9,7 @@ import java.util.Collections;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+@Singleton
 class BearCache {
 
     private Collection<Bear> bears;

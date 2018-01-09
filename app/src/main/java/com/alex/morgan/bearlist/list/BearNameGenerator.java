@@ -10,6 +10,7 @@ class BearNameGenerator {
 
     private final Random random;
 
+    @Inject
     BearNameGenerator(Random random) {
         this.random = random;
     }

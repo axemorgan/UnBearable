@@ -9,7 +9,9 @@ import com.alex.morgan.bearlist.Bear;
 import java.util.Collection;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
+@Singleton
 public class BearFetcher {
 
     interface Callback {
