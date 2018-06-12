@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/KittenList.iml" filepath="$PROJECT_DIR$/KittenList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UnBearable.iml" filepath="$PROJECT_DIR$/UnBearable.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
