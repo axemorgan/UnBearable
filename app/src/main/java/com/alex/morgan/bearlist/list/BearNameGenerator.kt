@@ -1,26 +1,21 @@
-package com.alex.morgan.bearlist.list;
+package com.alex.morgan.bearlist.list
 
-import java.util.Random;
+import java.util.Random
 
-import javax.inject.Inject;
+import javax.inject.Inject
 
-import dagger.Reusable;
+import dagger.Reusable
 
 @Reusable
-class BearNameGenerator {
+internal class BearNameGenerator @Inject
+constructor(private val random: Random) {
 
-    private final Random random;
+    val randomBearName: String
+        get() = NAMES[random.nextInt(NAMES.size)]
 
-    @Inject
-    BearNameGenerator(Random random) {
-        this.random = random;
-    }
+    companion object {
 
-    String getRandomBearName() {
-        return NAMES[random.nextInt(NAMES.length)];
-    }
-
-    private final static String[] NAMES = new String[]{
+        private val NAMES = arrayOf(
             "Beary Manilow",
             "Ali McClaw",
             "Gunnbjorn",
@@ -57,6 +52,7 @@ class BearNameGenerator {
             "Paw McCartney",
             "Little Bear",
             "Grizzly Adams"
-    };
+        )
+    }
 
 }
