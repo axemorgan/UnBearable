@@ -1,13 +1,14 @@
 package com.alex.morgan.bearlist.list
 
 import com.alex.morgan.bearlist.Bear
+import com.alex.morgan.bearlist.app.ActivityScope
 
 import javax.inject.Inject
 import javax.inject.Singleton
 
 import dagger.Lazy
 
-@Singleton
+@ActivityScope
 internal class BearListPresenter @Inject
 constructor(private val bearFetcher: BearFetcher, private val machine: Lazy<RubeGoldbergMachine>) :
     BearListContract.Presenter, BearFetcher.Callback {

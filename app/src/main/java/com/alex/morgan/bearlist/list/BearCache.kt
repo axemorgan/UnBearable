@@ -8,9 +8,7 @@ import java.util.Collections
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
-class BearCache @Inject
-constructor() {
+class BearCache @Inject constructor() {
 
     var bears: Collection<Bear> = emptySet()
 

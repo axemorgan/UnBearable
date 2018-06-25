@@ -16,14 +16,14 @@ class BearApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
-        appComponent = DaggerAppComponent.builder().build()
+        appComponent = DaggerAppComponent.builder().bindContext(this).build()
     }
 
     companion object {
 
-        private var instance: BearApplication? = null
+        private lateinit var instance: BearApplication
 
-        fun get(): BearApplication? {
+        fun get(): BearApplication {
             return instance
         }
     }
