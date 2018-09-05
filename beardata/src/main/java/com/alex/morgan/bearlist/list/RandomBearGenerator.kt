@@ -7,7 +7,7 @@ import java.util.Random
 import javax.inject.Inject
 
 @Reusable
-internal class RandomBearGenerator @Inject
+class RandomBearGenerator @Inject
 constructor(private val nameGenerator: BearNameGenerator) : BearSource {
 
     override val allBears: Collection<Bear>

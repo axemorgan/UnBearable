@@ -7,7 +7,7 @@ import javax.inject.Inject
 import dagger.Reusable
 
 @Reusable
-internal class BearNameGenerator @Inject
+class BearNameGenerator @Inject
 constructor(private val random: Random) {
 
     val randomBearName: String

@@ -9,7 +9,7 @@ import javax.inject.Singleton
 import dagger.Component
 
 @ActivityScope
-@Component(dependencies = [(AppComponent::class)], modules = [(BearListModule::class)])
+@Component(dependencies = [(AppComponent::class)], modules = [BearListModule::class, BearDataModule::class])
 interface BearListComponent {
     fun inject(activity: BearListActivity)
 
