@@ -2,11 +2,8 @@ package com.alex.morgan.bearlist.list
 
 import com.alex.morgan.bearlist.Bear
 import com.alex.morgan.bearlist.app.ActivityScope
-
-import javax.inject.Inject
-import javax.inject.Singleton
-
 import dagger.Lazy
+import javax.inject.Inject
 
 @ActivityScope
 internal class BearListPresenter @Inject

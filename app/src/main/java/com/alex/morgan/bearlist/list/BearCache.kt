@@ -1,12 +1,8 @@
 package com.alex.morgan.bearlist.list
 
 import com.alex.morgan.bearlist.Bear
-
-import java.util.ArrayList
-import java.util.Collections
-
+import java.util.*
 import javax.inject.Inject
-import javax.inject.Singleton
 
 class BearCache @Inject constructor() {
 
