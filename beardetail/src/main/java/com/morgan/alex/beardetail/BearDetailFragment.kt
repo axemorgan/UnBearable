@@ -1,5 +1,6 @@
 package com.morgan.alex.beardetail
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -7,9 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import com.alex.morgan.bearlist.Bear
 import com.squareup.picasso.Picasso
+import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_bear_detail.*
+import javax.inject.Inject
 
-class BearDetailFragment : Fragment() {
+class BearDetailFragment : Fragment(), BearDetailContract.View {
 
     companion object {
         private const val ARG_BEAR = "bear"
@@ -24,7 +27,15 @@ class BearDetailFragment : Fragment() {
         }
     }
 
+    @Inject
+    lateinit var presenter: BearDetailContract.Presenter
+
     private lateinit var selectedBear: Bear
+
+    override fun onAttach(context: Context?) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(context)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,15 +47,29 @@ class BearDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         selectedBear = arguments?.getSerializable(ARG_BEAR) as Bear
+        presenter.attachView(this)
+    }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        presenter.detachView()
+    }
+
+    override fun showName(name: String) {
         bear_detail_name.text = selectedBear.name
+    }
 
-        Picasso.with(view.context)
+    override fun showImage(url: String) {
+        Picasso.with(requireContext())
             .load(selectedBear.profileImageUrl)
             .error(android.R.drawable.ic_dialog_alert)
             .placeholder(R.drawable.grey_bear)
             .resize(400, 400)
             .centerCrop()
             .into(bear_detail_image)
+    }
+
+    override fun getBearArgument(): Bear {
+        return selectedBear
     }
 }

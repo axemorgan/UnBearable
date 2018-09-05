@@ -1,4 +1,4 @@
-package com.alex.morgan.bearlist.app
+package com.alex.morgan
 
 import javax.inject.Scope
 

@@ -18,6 +18,8 @@ import com.alex.morgan.bearlist.list.BearAdapter
 import com.alex.morgan.bearlist.list.BearListActivity
 import com.alex.morgan.bearlist.list.BearListContract
 import com.morgan.alex.beardetail.BearDetailFragment
+import dagger.android.AndroidInjection
+import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_bear_list.*
 import javax.inject.Inject
 
@@ -29,7 +31,7 @@ class BearListFragment : Fragment(), BearListContract.View, SwipeRefreshLayout.O
     private lateinit var bearAdapter: BearAdapter
 
     override fun onAttach(context: Context?) {
-        BearApplication.get().bearListComponent.inject(this)
+        AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }
 

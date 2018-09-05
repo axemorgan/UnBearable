@@ -1,22 +1,30 @@
 package com.alex.morgan.bearlist.app
 
+import android.app.Activity
 import android.app.Application
+import android.app.Fragment
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasActivityInjector
+import dagger.android.HasFragmentInjector
+import javax.inject.Inject
 
-import com.alex.morgan.bearlist.list.BearListComponent
-import com.alex.morgan.bearlist.list.DaggerBearListComponent
+class BearApplication : Application(), HasActivityInjector {
 
-class BearApplication : Application() {
-
-    lateinit var appComponent: AppComponent
-
-    val bearListComponent: BearListComponent by lazy {
-        DaggerBearListComponent.builder().appComponent(appComponent).build()
-    }
+    @Inject
+    lateinit var activityInjector: DispatchingAndroidInjector<Activity>
 
     override fun onCreate() {
         super.onCreate()
         instance = this
-        appComponent = DaggerAppComponent.builder().bindContext(this).build()
+        DaggerAppComponent.builder()
+            .bindContext(this)
+            .build()
+            .inject(this)
+    }
+
+    override fun activityInjector(): AndroidInjector<Activity> {
+        return activityInjector
     }
 
     companion object {

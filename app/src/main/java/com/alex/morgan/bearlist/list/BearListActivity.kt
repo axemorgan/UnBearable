@@ -1,16 +1,30 @@
 package com.alex.morgan.bearlist.list
 
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import android.text.TextUtils.replace
 import com.alex.morgan.bearlist.Bear
 import com.alex.morgan.bearlist.BearListFragment
 import com.alex.morgan.bearlist.R
 import com.morgan.alex.beardetail.BearDetailFragment
+import dagger.android.AndroidInjection
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.HasSupportFragmentInjector
+import javax.inject.Inject
 
-class BearListActivity : AppCompatActivity() {
+class BearListActivity : AppCompatActivity(), HasSupportFragmentInjector {
+
+    @Inject
+    lateinit var widget: Widget
+
+    @Inject
+    lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
+        require(widget != null)
+
         super.onCreate(savedInstanceState)
         this.setContentView(R.layout.activity_main)
 
@@ -28,5 +42,9 @@ class BearListActivity : AppCompatActivity() {
             .replace(R.id.fragment_container, BearDetailFragment.forBear(bear))
             .addToBackStack("DetailFragment")
             .commit()
+    }
+
+    override fun supportFragmentInjector(): AndroidInjector<Fragment> {
+        return fragmentInjector
     }
 }
