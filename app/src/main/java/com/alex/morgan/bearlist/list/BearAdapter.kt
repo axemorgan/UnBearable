@@ -10,9 +10,10 @@ import android.widget.TextView
 import com.alex.morgan.bearlist.Bear
 import com.alex.morgan.bearlist.R
 import com.squareup.picasso.Picasso
-import java.util.ArrayList
+import java.util.*
 
-internal class BearAdapter : RecyclerView.Adapter<BearAdapter.BearViewHolder>() {
+internal class BearAdapter(private val selectionListener: (Bear) -> Unit) :
+    RecyclerView.Adapter<BearAdapter.BearViewHolder>() {
 
     private val bearList: ArrayList<Bear>
 
@@ -46,17 +47,17 @@ internal class BearAdapter : RecyclerView.Adapter<BearAdapter.BearViewHolder>() 
     }
 
     override fun onBindViewHolder(holder: BearViewHolder, position: Int) {
-        val (name, profileImageUrl) = bearList[position]
+        val bear = bearList[position]
 
-        holder.name.text = name
+        holder.name.text = bear.name
         holder.itemView.setOnClickListener {
-            //
+            selectionListener.invoke(bear)
         }
         val pablo = Picasso.Builder(holder.itemView.context)
             .listener { picasso, uri, exception -> Log.e("PICASSO", "Image failed", exception) }
             .build()
 
-        pablo.load(profileImageUrl)
+        pablo.load(bear.profileImageUrl)
             .error(android.R.drawable.ic_dialog_alert)
             .placeholder(R.drawable.grey_bear)
             .resize(200, 200)

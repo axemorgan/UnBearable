@@ -15,7 +15,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.alex.morgan.bearlist.app.BearApplication
 import com.alex.morgan.bearlist.list.BearAdapter
+import com.alex.morgan.bearlist.list.BearListActivity
 import com.alex.morgan.bearlist.list.BearListContract
+import com.morgan.alex.beardetail.BearDetailFragment
 import kotlinx.android.synthetic.main.fragment_bear_list.*
 import javax.inject.Inject
 
@@ -47,7 +49,9 @@ class BearListFragment : Fragment(), BearListContract.View, SwipeRefreshLayout.O
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        bearAdapter = BearAdapter()
+        bearAdapter = BearAdapter {
+            presenter.onShowBearDetail(it)
+        }
 
         bear_recycler.layoutManager = LinearLayoutManager(view.context)
         bear_recycler.adapter = bearAdapter
@@ -95,6 +99,10 @@ class BearListFragment : Fragment(), BearListContract.View, SwipeRefreshLayout.O
         bear_recycler.visibility = View.GONE
         loading_view.visibility = View.VISIBLE
         loading_text.text = text
+    }
+
+    override fun navigateToBearDetail(bear: Bear) {
+        (requireActivity() as BearListActivity).showBearDetail(bear)
     }
 
     override fun showError() {

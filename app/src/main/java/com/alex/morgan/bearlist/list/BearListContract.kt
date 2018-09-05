@@ -11,6 +11,8 @@ interface BearListContract {
         fun showError()
 
         fun showMessage(message: String)
+
+        fun navigateToBearDetail(bear: Bear)
     }
 
     interface Presenter {

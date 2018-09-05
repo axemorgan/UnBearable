@@ -27,7 +27,7 @@ constructor(private val bearFetcher: BearFetcher, private val machine: Lazy<Rube
     }
 
     override fun onShowBearDetail(bear: Bear) {
-        //TODO
+        view!!.navigateToBearDetail(bear)
     }
 
     override fun onActivateRubeGoldbergMachine() {

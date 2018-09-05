@@ -1,3 +1,5 @@
 package com.alex.morgan.bearlist
 
-data class Bear(val name: String, val profileImageUrl: String)
+import java.io.Serializable
+
+data class Bear(val name: String, val profileImageUrl: String) : Serializable
