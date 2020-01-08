@@ -66,4 +66,12 @@ class Refactorings {
     /** Convert to Expression Body */
     /** Move to Companion Object */
 
+
+    /** BONUS HOTKEYS
+     *
+     * Jump to Next Issue - F2
+     *
+     * Jump to Next Usage - ⌃⌥ + arrow
+     *
+     * */
 }

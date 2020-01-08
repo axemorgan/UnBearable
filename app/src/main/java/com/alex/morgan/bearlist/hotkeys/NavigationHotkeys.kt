@@ -36,6 +36,8 @@ package com.alex.morgan.bearlist.hotkeys
 
 
 /** Split/Unsplit - ⇧⌥A and ⇧⌥Z (Custom) */
+// TODO create a new new hotkey
+
 
 /** Goto Next Splitter - ⌥⇥ */
 // TODO work on BearAdapter and bear_list_item at the same time
