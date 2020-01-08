@@ -1,7 +1,10 @@
+@file:Suppress("unused")
+
 package com.alex.morgan.bearlist.hotkeys
 
 import android.app.Activity
 import android.os.Bundle
+import com.alex.morgan.bearlist.hotkeys.HotKeys.warmUp
 
 
 /**
@@ -17,8 +20,13 @@ import android.os.Bundle
  */
 
 
-@Suppress("unused")
-object Hotkeys {
+/** Optimize Imports - ⌃⌥O */
+// TODO remove these unused imports
+import com.alex.morgan.bearlist.Bear
+import com.alex.morgan.bearlist.BuildConfig
+
+
+object HotKeys {
 
     /**
      * Find Actions - ⇧⌘A
@@ -37,16 +45,11 @@ object Hotkeys {
     }
 
 
-    /** Optimize Imports - ⌃⌥O */
-// TODO remove these unused imports
-//import com.alex.morgan.bearlist.Bear
-//import com.alex.morgan.bearlist.BuildConfig
-
 //fun     makeItPretty( howPretty : Int )
 //{
 //
 //    /** Reformat Code - ⌥⌘L */
-////     TODO make this pretty
+//     //TODO make this pretty
 //
 //        makeItPretty(   11
 //        )
