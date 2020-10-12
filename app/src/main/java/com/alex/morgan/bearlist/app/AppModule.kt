@@ -9,7 +9,7 @@ import com.morgan.alex.beardetail.BearDetailModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
-@Module
+@Module(includes = [BearDetailModule::class])
 interface AppModule {
 
     @ActivityScope

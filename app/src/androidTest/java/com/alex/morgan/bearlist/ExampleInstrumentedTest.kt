@@ -1,14 +1,19 @@
 package com.alex.morgan.bearlist
 
+import androidx.recyclerview.widget.RecyclerView
 import androidx.test.InstrumentationRegistry
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.alex.morgan.bearlist.list.BearAdapter
 import com.alex.morgan.bearlist.list.BearListActivity
+import org.hamcrest.Matchers.allOf
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -32,14 +37,12 @@ class ExampleInstrumentedTest {
 
         onView(withId(R.id.bear_recycler))
             .perform(
-                RecyclerViewActions.actionOnItem<BearAdapter.BearViewHolder>(
-                    withText("Paw Rudd"),
+                RecyclerViewActions.actionOnItemAtPosition<BearAdapter.BearViewHolder>(
+                    0,
                     ViewActions.click()
                 )
             )
 
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("com.alex.morgan.bearlist", appContext.packageName)
+        onView(allOf(withId(R.id.bear_detail_name), withText("Paw Rudd"))).check(matches(isDisplayed()))
     }
 }
