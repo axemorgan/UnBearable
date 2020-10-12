@@ -1,8 +1,7 @@
 package com.alex.morgan.bearlist.list
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.alex.morgan.bearlist.Bear
 import com.alex.morgan.bearlist.BearListFragment
 import com.alex.morgan.bearlist.R
@@ -10,16 +9,16 @@ import com.morgan.alex.beardetail.BearDetailFragment
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
-import dagger.android.support.HasSupportFragmentInjector
+import dagger.android.HasAndroidInjector
 import javax.inject.Inject
 
-class BearListActivity : AppCompatActivity(), HasSupportFragmentInjector {
+class BearListActivity : AppCompatActivity(), HasAndroidInjector {
 
     @Inject
     lateinit var widget: Widget
 
     @Inject
-    lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
+    lateinit var fragmentInjector: DispatchingAndroidInjector<Any>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
@@ -44,7 +43,5 @@ class BearListActivity : AppCompatActivity(), HasSupportFragmentInjector {
             .commit()
     }
 
-    override fun supportFragmentInjector(): AndroidInjector<Fragment> {
-        return fragmentInjector
-    }
+    override fun androidInjector(): AndroidInjector<Any> = fragmentInjector
 }

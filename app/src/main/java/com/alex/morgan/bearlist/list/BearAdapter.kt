@@ -1,23 +1,23 @@
 package com.alex.morgan.bearlist.list
 
-import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.alex.morgan.bearlist.Bear
 import com.alex.morgan.bearlist.R
 import com.squareup.picasso.Picasso
 import java.util.*
 
-internal class BearAdapter(private val selectionListener: (Bear) -> Unit) :
+class BearAdapter(private val selectionListener: (Bear) -> Unit) :
     RecyclerView.Adapter<BearAdapter.BearViewHolder>() {
 
     private val bearList: ArrayList<Bear>
 
-    internal inner class BearViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class BearViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         var imageView: ImageView
         var name: TextView

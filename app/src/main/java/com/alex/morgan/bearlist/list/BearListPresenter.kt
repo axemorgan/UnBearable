@@ -5,7 +5,6 @@ import com.alex.morgan.FragmentScope
 import dagger.Lazy
 import javax.inject.Inject
 
-@FragmentScope
 internal class BearListPresenter @Inject
 constructor(private val bearFetcher: BearFetcher, private val machine: Lazy<RubeGoldbergMachine>) :
     BearListContract.Presenter, BearFetcher.Callback {

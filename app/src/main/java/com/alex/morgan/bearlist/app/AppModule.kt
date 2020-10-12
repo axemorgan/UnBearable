@@ -9,14 +9,17 @@ import com.morgan.alex.beardetail.BearDetailModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
-@Module(includes = [BearListModule::class, BearDetailModule::class])
-abstract class AppModule {
+@Module
+interface AppModule {
 
     @ActivityScope
-    @ContributesAndroidInjector
-    abstract fun constributeBearListActivity(): BearListActivity
+    @ContributesAndroidInjector(modules = [BearListActivityModule::class])
+    fun contributeBearListActivity(): BearListActivity
+}
 
+@Module
+interface BearListActivityModule {
     @FragmentScope
-    @ContributesAndroidInjector
-    abstract fun contributeBearListFragment(): BearListFragment
+    @ContributesAndroidInjector(modules = [BearListModule::class])
+    fun contributeBearListFragment(): BearListFragment
 }

@@ -1,18 +1,13 @@
 package com.alex.morgan.bearlist.app
 
-import android.app.Activity
 import android.app.Application
-import android.app.Fragment
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasActivityInjector
-import dagger.android.HasFragmentInjector
+import dagger.android.*
 import javax.inject.Inject
 
-class BearApplication : Application(), HasActivityInjector {
+class BearApplication : Application(), HasAndroidInjector {
 
     @Inject
-    lateinit var activityInjector: DispatchingAndroidInjector<Activity>
+    lateinit var androidInjector: DispatchingAndroidInjector<Any>
 
     override fun onCreate() {
         super.onCreate()
@@ -23,14 +18,12 @@ class BearApplication : Application(), HasActivityInjector {
             .inject(this)
     }
 
-    override fun activityInjector(): AndroidInjector<Activity> {
-        return activityInjector
-    }
+    override fun androidInjector(): AndroidInjector<Any> = androidInjector
+
 
     companion object {
 
         private lateinit var instance: BearApplication
-
         fun get(): BearApplication {
             return instance
         }

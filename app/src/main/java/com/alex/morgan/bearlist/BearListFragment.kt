@@ -2,23 +2,15 @@ package com.alex.morgan.bearlist
 
 import android.content.Context
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v4.app.Fragment
-import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.LinearLayoutManager
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
-import com.alex.morgan.bearlist.app.BearApplication
+import android.view.*
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.alex.morgan.bearlist.list.BearAdapter
 import com.alex.morgan.bearlist.list.BearListActivity
 import com.alex.morgan.bearlist.list.BearListContract
-import com.morgan.alex.beardetail.BearDetailFragment
-import dagger.android.AndroidInjection
+import com.google.android.material.snackbar.Snackbar
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_bear_list.*
 import javax.inject.Inject
@@ -30,7 +22,7 @@ class BearListFragment : Fragment(), BearListContract.View, SwipeRefreshLayout.O
 
     private lateinit var bearAdapter: BearAdapter
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }

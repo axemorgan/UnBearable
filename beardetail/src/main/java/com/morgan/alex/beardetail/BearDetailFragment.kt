@@ -2,10 +2,11 @@ package com.morgan.alex.beardetail
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.alex.morgan.bearlist.Bear
 import com.squareup.picasso.Picasso
 import dagger.android.support.AndroidSupportInjection
@@ -32,7 +33,7 @@ class BearDetailFragment : Fragment(), BearDetailContract.View {
 
     private lateinit var selectedBear: Bear
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }
