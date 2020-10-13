@@ -4,10 +4,10 @@ import android.app.Application
 import dagger.android.*
 import javax.inject.Inject
 
-class BearApplication : Application(), HasAndroidInjector {
+open class BearApplication : Application(), HasAndroidInjector {
 
     @Inject
-    lateinit var androidInjector: DispatchingAndroidInjector<Any>
+    open lateinit var androidInjector: DispatchingAndroidInjector<Any>
 
     override fun onCreate() {
         super.onCreate()

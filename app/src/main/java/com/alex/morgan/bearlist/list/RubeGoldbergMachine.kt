@@ -4,8 +4,7 @@ import android.util.Log
 
 import javax.inject.Inject
 
-internal class RubeGoldbergMachine @Inject
-constructor() {
+class RubeGoldbergMachine @Inject constructor() {
 
     init {
         Log.i(LOG_TAG, "Setting it all up")

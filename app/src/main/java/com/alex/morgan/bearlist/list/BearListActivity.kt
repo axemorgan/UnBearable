@@ -18,7 +18,7 @@ class BearListActivity : AppCompatActivity(), HasAndroidInjector {
     lateinit var widget: Widget
 
     @Inject
-    lateinit var fragmentInjector: DispatchingAndroidInjector<Any>
+    lateinit var fragmentInjector: AndroidInjector<Any>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
